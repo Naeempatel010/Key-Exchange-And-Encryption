@@ -5,7 +5,7 @@ const socket = require('socket.io');
 const Bcrypt = require('crypto-js');
 const app = express();
 
-const PORT = 3000 | process.env.port;
+const PORT = 3000 | process.env.PORT;
 const secret = require('./secret.js');
 secret.b = Math.floor(Math.random() * secret.g);
 console.log(secret);
