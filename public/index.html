@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body style = "background-color: whitesmoke; background-image: url('bg.jpg');  ;">
+        <div class="container">
+            <h1 class="jumbotron" style="text-align: center;">Secure Message Exchange</h1>
+            <div class="container" style="background-color: whitesmoke; height: 25%;padding: 20px;">            
+                <h1 style="text-align: center;">Public Key </h1>
+                <label for="p" >Enter the p value</label>
+                <input class= "form-control"  type="number" id = "p" placeholder="Enter the value of p">
+                <label for = "g">Enter the q value</label>
+                <input class = "form-control" type="number" id = "g" placeholder="Enter the value of g">
+            </div>
+                    
+        </div>
+    <div class="container" style="background-color: whitesmoke; padding: 25px; margin-top: 30px ; text-align: center;">
+        <h2>Private Details</h2>
+        <button class = "btn btn-primary" style = "margin: 20px;" onclick="handleRandom()">Generate a random button</button>
+        <p>The random number is <span id = "rnd"></span></p>
+    </div>
+    <div class="container" style="background-color: whitesmoke; padding: 25px; margin-top: 30px ; text-align: center;">
+    <h2>Generating the X public value to be send for authentication ...</h2>
+    
+    <p>The Encryption key provided is <span id ="enc"></span></p>
+    <input class = "form-control" type = "text" id = "plaintext" style="margin: 20px;"/>
+    <button class = "btn btn-primary" onclick="checkEncryption(event)" style="margin-bottom:20px">Submit</button>
+    <p>The encrypted text is <span style = "font-weight: bold;" id = "enctext"></span></p>
+    <p>The encrypted text from server is <span style = "font-weight: bold;" id = "enctext2"></span></p>
+    <p>The decrypted text from server is <span style = "font-weight: bold;" id = "enctext3"></span></p>
+    </div>
+    
+    <script
+  src="https://code.jquery.com/jquery-3.5.0.js"
+  integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+  crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+        <script src ="http://localhost:3000/js/index.js"></script>
+
+    </body>
+</html>
