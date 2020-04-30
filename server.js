@@ -5,7 +5,7 @@ const socket = require('socket.io');
 const Bcrypt = require('crypto-js');
 const app = express();
 
-const PORT = 3000 || process.env.PORT;
+const PORT = process.env.PORT || 3000 ;
 const secret = require('./secret.js');
 secret.b = Math.floor(Math.random() * secret.g);
 console.log(secret);
@@ -39,7 +39,7 @@ io.on('connection', (socket) => {
 
 
 http.listen(PORT, () => {
-  console.log('listening on *:' + PORT);
+  console.log('the application is listening on *:' + PORT);
 });
 
 
