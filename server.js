@@ -32,8 +32,15 @@ io.on('connection', (socket) => {
 
     socket.on('cipher', (msg) =>{
         console.log(msg);
-        console.log('the plain text is ' + AES.decrypt(msg,"secret").toString(Bcrypt.enc.Utf8));
+        d_msg = AES.decrypt(msg,"secret").toString(Bcrypt.enc.Utf8);
+        if(d_msg != "beautiful bird"){
+          io.emit('disconnect');
+        }
+        else {
+          console.log('the plain text is ' + AES.decrypt(msg,"secret").toString(Bcrypt.enc.Utf8));
         io.emit('plainText',AES.encrypt("We will commence the attack tomorrow on Mumbai","secret").toString())
+        }
+        
     });
   });
 

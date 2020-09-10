@@ -9,16 +9,18 @@
             <div class="container" style="background-color: whitesmoke; height: 25%;padding: 20px;">            
                 <h1 style="text-align: center;">Public Key </h1>
                 <label for="p" >Enter the p value</label>
-                <input class= "form-control"  type="number" id = "p" placeholder="Enter the value of p">
+                <input class= "form-control"  type="number" id = "p" placeholder="Enter the value of p" value="23" readonly>
                 <label for = "g">Enter the q value</label>
-                <input class = "form-control" type="number" id = "g" placeholder="Enter the value of g">
+                <input class = "form-control" type="number" id = "g" placeholder="Enter the value of g" value="9" readonly>
             </div>
                     
         </div>
     <div class="container" style="background-color: whitesmoke; padding: 25px; margin-top: 30px ; text-align: center;">
         <h2>Private Details</h2>
         <button class = "btn btn-primary" style = "margin: 20px;" onclick="handleRandom()">Generate a random button</button>
-        <p>The random number is <span id = "rnd"></span></p>
+        <p>The random a number is <span id = "rnd"></span></p>
+        <p>The value A send to the server is <span id ="A"></span></p>
+        <p>The value B received from the server is <span id ="B"></span></p>
     </div>
     <div class="container" style="background-color: whitesmoke; padding: 25px; margin-top: 30px ; text-align: center;">
     <h2>Generating the X public value to be send for authentication ...</h2>

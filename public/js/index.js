@@ -14,6 +14,7 @@ var socket = io();
 socket.on('y_value_emit',function(msg){
     console.log('socket y'+ msg);
     alert('value received from Server with id ' + socket.id + "\n is " + msg);
+    document.getElementById('B').innerHTML = msg;
     let key = Math.pow(parseInt(msg),document.getElementById('rnd').innerHTML)%parseInt(document.getElementById('p').value);
     alert('key for encryption is '+ key);
     document.getElementById('enc').innerHTML = key;
@@ -30,6 +31,10 @@ socket.on('plainText', (msg) => {
 
 
 });
+socket.on('disconnect',(msg) =>{
+    window.location.href = "https://www.coolmathgames.com/"
+    console.log('disconnected')
+});
 function handlePublicX(number){
     console.log(Math.pow(document.getElementById('g').value,parseInt(number)));
     var X = Math.pow(parseInt(document.getElementById('g').value),parseInt(number)) % parseInt(document.getElementById('p').value);
@@ -42,6 +47,7 @@ function handlePublicX(number){
     }
     
     socket.emit('x_value_emit', data);
+    document.getElementById('A').innerHTML = data.X
 }
 function handleRandom(e){
     //e.preventDefault();
