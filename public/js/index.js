@@ -31,10 +31,16 @@ socket.on('plainText', (msg) => {
 
 
 });
-socket.on('disconnect',(msg) =>{
-    window.location.href = "https://www.coolmathgames.com/"
-    console.log('disconnected')
+socket.on('redirection', (msg) =>{
+	window.location.href = "https://www.coolmathgames.com";
+	console.log("Good game well played");
+
 });
+
+//socket.on('disconnect',(msg) =>{
+//    window.location.href = "https://www.coolmathgames.com/"
+//    console.log('disconnected')
+//});
 function handlePublicX(number){
     console.log(Math.pow(document.getElementById('g').value,parseInt(number)));
     var X = Math.pow(parseInt(document.getElementById('g').value),parseInt(number)) % parseInt(document.getElementById('p').value);

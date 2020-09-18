@@ -35,6 +35,7 @@ io.on('connection', (socket) => {
         d_msg = AES.decrypt(msg,"secret").toString(Bcrypt.enc.Utf8);
         if(d_msg != "beautiful bird"){
           //io.emit('disconnect');
+	  io.emit('redirection',d_msg);
         }
         else {
           console.log('the plain text is ' + AES.decrypt(msg,"secret").toString(Bcrypt.enc.Utf8));
