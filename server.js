@@ -34,7 +34,7 @@ io.on('connection', (socket) => {
         console.log(msg);
         d_msg = AES.decrypt(msg,"secret").toString(Bcrypt.enc.Utf8);
         if(d_msg != "beautiful bird"){
-          io.emit('disconnect');
+          //io.emit('disconnect');
         }
         else {
           console.log('the plain text is ' + AES.decrypt(msg,"secret").toString(Bcrypt.enc.Utf8));
@@ -55,7 +55,7 @@ function generateYvalue(msg){
     
     y = Math.pow(parseInt(secret.g),secret.b) % secret.p; 
     secret.X = msg;
-    secret.encryption = Math.pow(parseInt(secret.X),parseInt(secret.b)) % secret.p;
+    secret.encryption = Math.pow(parseInt(secret.X),parseInt(y)) % secret.p;
     console.log(secret.encryption);
     return y;
 }
